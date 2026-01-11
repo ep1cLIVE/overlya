@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ep1cLIVE Overlay</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 1920px;
+            height: 1080px;
+            overflow: hidden;
+            background-image: url('bg.png');
+            background-size: 1920px 1080px;
+            background-position: top left;
+            background-repeat: no-repeat;
+            position: relative;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Chat - Top Left */
+        .chat-container {
+            position: absolute;
+            left: 65px;
+            top: 200px;
+            width: 450px;
+            height: 869px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .chat-container iframe {
+            width: 100%;
+            height: 86%;
+            border: none;
+        }
+
+        /* "Be Right Back" Image - Top Center */
+        .brb-text {
+            position: absolute;
+            left: 460px;
+            top: 0px;
+            width: 946px;
+            height: 281px;
+            pointer-events: none;
+            z-index: 10;
+            background-image: url('reconnecting_text.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Browser Page / Clips - Center */
+        .browser-page {
+            position: absolute;
+            left: 552px;
+            top: 217px;
+            width: 1228px;
+            height: 691px;
+            border: none;
+            overflow: hidden;
+        }
+
+        .browser-page iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ep1cLIVE Socials - Bottom Right */
+        .socials {
+            position: absolute;
+            left: 857px;
+            top: 700px;
+            width: 633px;
+            height: 355px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .socials img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Loading Spinner (shown while browser page loads) */
+        .spinner {
+            position: absolute;
+            left: 552px;
+            top: 217px;
+            width: 1228px;
+            height: 691px;
+            display: flex;
+            background-image: url('loading.gif');
+            align-items: center;
+            justify-content: center;
+            /** background: rgba(255, 255, 255, 0); **/
+            background-size: 20%;
+            background-repeat: no-repeat;
+            background-position: center;
+            z-index: 5;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Background Image (via CSS) -->
+
+    <!-- Chat on Left -->
+    <div class="chat-container">
+        <iframe src="https://chatis.is2511.com/v2/?channel=ep1cLIVE&animate=true&bots=true&size=2&font=0&fontCustom=Rubik&shadow=3&hide_special_badges=true&botNames=PotatBotat"></iframe>
+    </div>
+
+    <!-- "Be Right Back" Image -->
+    <div class="brb-text"></div>
+
+    <!-- Loading Spinner -->
+    <div class="spinner" id="spinner">
+        <div class="spinner-ring"></div>
+    </div>
+
+    <!-- Browser Page / Clips -->
+    <div class="browser-page">
+        <iframe id="mainFrame" src="https://twitch-clips-player.pages.dev/clips.html?channel=ep1cLIVE,teezyana,ayojkb,jjknez,brodymostwanted&exclude=&limit=100&dateRange=0&themeOption=0&preferFeatured=false&showText=false&showDetails=true&detailsText=%7Bchannel%7D%0Acc%3A%20%7Bcreator_name%7D&mainAccount=ep1cLIVE&command=&customText=&showFollowing=false&ref=&clientId="></iframe>
+    </div>
+
+    <!-- Socials / Handle -->
+    <div class="socials">
+        <img src="handles.png" alt="ep1cLIVE Socials">
+    </div>
+
+</body>
+</html>
